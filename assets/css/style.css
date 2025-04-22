@@ -1,115 +1,36 @@
-@import url(./fonts/fonts.css);
-body{
+body,html{
     padding: 0px;
     margin: 0px;
-    background-color: rgb(22, 27, 34);
-    color: white;
-    font-family:"Merriweather Sans", sans-serif;
-    font-size: 2rem;
-    --accent-bg:#5050e0;
-    --video-bg: rgb(22, 27, 34);
-    --border: 2px solid rgba(128, 128, 128, 0.05);
     width: 100vw;
     height: 100dvh;
-    
+    --theme-color: #1c352b;
+    --theme-color-light: #448169;
 }
-*, :root{
-    overflow: hidden hidden;
-}
-main{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+#map{
     width: 100%;
     height: 100%;
+    background-color: lightcyan;
+    z-index: 10;
 }
-main > *{
-    grid-area: 1/1;
-    width: 100%;
-    height: 100%;
-}
-main > .ui{
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-main > .ui > video{
-    place-self: self-end;
-    width: 40%;
-    height: auto;
-    margin-right: 1rem;
-}
-footer{
-    width: 80%;
-    place-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 1rem 0rem;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.02);
-    gap: .4rem;
-}
-footer > input{
-    appearance: none;
-    -webkit-appearance: none;
-}
-footer > input::before, footer button{
-    content: attr(default);
-    display: block;
-    color: white;
-    border-radius: 100%;
-    border:none;
+.map-controls > button.locate-me{
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background-color: white;
+    color: var(--theme-color);
+    border: none;
     outline: none;
-    background-color: var(--accent-bg);
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    font-size: large;
 }
-footer > input:checked::before{
-    content: attr(toggled);
-}
-
-
-main > .videos{
-    display: grid;
-    z-index: 1;
-}
-main > .videos > video{
-    height: 100%;
-    width: 100%;
-    
-}
-video{
-    border: var(--border);
-    border-radius: 5px;
-    background-color: var(--video-bg);
-    transform: rotateY(180deg);
-}
-
-
-@media (min-width:700px) {
-    main > .ui > video{
-        width: 15vw;
-    }
-    main > .videos:has(video:nth-child(2)){
-        grid-template-columns: 1fr 1fr;
-    }
-    main > .videos:has(video:nth-child(5)){
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-@media (max-width:699px) {
-    main > .videos:has(video:nth-child(4)){
-        grid-template-columns: 1fr 1fr;
-    }
+.map-controls > button.locate-me > img{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
 }
