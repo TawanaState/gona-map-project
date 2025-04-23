@@ -24,12 +24,11 @@ export const Layers = [
         title : "Satellite",
         description : "Satellite layer",
         icon : "/assets/images/layers/satellite.png",
-        url : "https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}",
+        url : "https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
         options : {
-            minZoom: 0,
             maxZoom: 20,
             attribution: '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            ext: 'jpg'
+            subdomains : ['mto', 'mt1', 'mt2', 'mt3']
         }
     },
     {
