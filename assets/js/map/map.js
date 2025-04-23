@@ -1,7 +1,10 @@
+import { setupLayers } from "./layers.js";
+
+
 var map = L.map('map');
 window.MAP = map; // Expose map to global scope for debugging
 
-const BTN_LOCATE_ME = document.querySelector("button.locate-me");
+const BTN_LOCATE_ME = document.querySelector("button.btn-locate-me");
 BTN_LOCATE_ME.onclick = (e) => {
     /*if (!navigator.geolocation) {
         alert("GEO location not supported by your browser.");
@@ -27,7 +30,7 @@ BTN_LOCATE_ME.onclick = (e) => {
     }*/
 
     // Get the user's location and center the map
-    map.locate({setView: true});
+    map.locate({setView: true, watch:true, enableHighAccuracy: true});
 
     // Optional: Handle the locationfound event
     map.on('locationfound', function(e) {
@@ -37,12 +40,8 @@ BTN_LOCATE_ME.onclick = (e) => {
     });
 }
 
-map.setView([-21.9198, 31.4664], 40);
+map.setView([-21.9198, 31.4664], 15); // Set initial view to Zimbabwe
+setupLayers()
+//L.tileLayer(Layers[1].url, Layers[1].options).addTo(map);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-var marker = L.marker([51.5, -0.09]).addTo(map);
 

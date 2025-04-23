@@ -13,12 +13,24 @@
     </div>
 
     <div class="map-controls">
-        <button class="locate-me">
-            <img src="./assets/images/icons/locate-me.svg" alt="Locate Me" class="locate-me-icon">
+        <button class="btn-locate-me">
+            <img src="./assets/images/icons/locate-me-new.svg" alt="Locate Me" class="locate-me-icon">
         </button>
-        
+
+        <a href="#layers-modal" class="btn-layers">
+            <img src="./assets/images/icons/layers.svg" alt="Locate Me" class="locate-me-icon">
+        </a>
+
+        <div class="layers-modal" id="layers-modal">
+            <div class="layers-modal-content">
+                <h2>Map Layers</h2>
+                <div class="layers-modal-options">
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="./assets/js/map.js"></script>
+    <script type="module" src="./assets/js/map/map.js"></script>
     
 </body>
 </html>
